@@ -25,14 +25,19 @@
             margin: 0 auto;
         }
 
-        /* Headings */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             line-height: 1.1;
             font-weight: 600;
             text-wrap: balance;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             border-bottom: 1px solid var(--color-neutral-80);
             padding-bottom: 0.2em;
         }
@@ -64,22 +69,15 @@
             font-size: 130%;
         }
 
-        /* Lists */
-        ul, ol {
+        ul,
+        ol {
             padding-inline-start: 2em;
         }
 
-        li {
-            &::marker {
-                color: var(--color-neutral-40);
-            }
-
-            +li {
-                margin-top: 0.2em;
-            }
+        li+li {
+            margin-top: 0.2em;
         }
 
-        /* Sectioning elements */
         header {
             padding-block: 1em;
             text-align: center;
@@ -92,7 +90,6 @@
             padding: 0.1rem 2rem;
         }
 
-        /* Figures */
         figure {
             margin: 1em 0;
             padding: 0.5rem;
@@ -101,30 +98,22 @@
             box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
             text-align: center;
             background: white;
+        }
 
-            >figcaption {
-                font: 500 75% var(--font-sans);
-                background: var(--color-neutral-95);
-                padding: 0.5rem;
-                margin: -0.5rem;
-                margin-top: 0.5rem;
-                counter-increment: figure;
-                text-align: left;
+        figure>figcaption {
+            font: 500 75% var(--font-sans);
+            background: var(--color-neutral-95);
+            padding: 0.5rem;
+            margin: -0.5rem;
+            margin-top: 0.5rem;
+            counter-increment: figure;
+            text-align: left;
+        }
 
-                &::before {
-                    content: 'Figure ' counter(figure) ': ';
-                    font-weight: bold;
-                    color: var(--color-neutral-40);
-                }
-
-                a:not(:hover, :focus, :active) {
-                    color: inherit;
-                    text-decoration: underline;
-                    text-decoration-color: color-mix(in lab,
-                            currentColor,
-                            transparent 70%);
-                }
-            }
+        figure>figcaption::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
         }
     </style>
 </head>
@@ -135,51 +124,88 @@
             <small>Assignment 4</small>
             Persuasive or Deceptive Visualization?
         </h1>
-
-        <p><strong>Your Name</strong> — <em>Your UCSD Email Address</em></p>
+        <p><strong>Vishudh Shah</strong> — <em>v8shah@ucsd.edu</em></p>
     </header>
-
     <main>
-        <h2>Proposition: [STATE PROPOSITION]</h2>
+        <h2>Proposition: The UK is a global leader in environmental protection spending.</h2>
 
         <section>
             <h3>FOR the Proposition</h3>
-
             <figure>
-                <img src="IMAGE_FILENAME" alt="" />
-                <figcaption>BRIEF CAPTION HERE.</figcaption>
+                <img src="./Images/final-for.png" alt="Image for the proposition" width="100%" />
+                <figcaption>A plot of UK’s environmental expenditure compared to the global average</figcaption>
             </figure>
-
-            <p>Design Decisions and Rationale:</p>
-
+            Design Decisions and Rationale:
             <ul>
-                <li>RATIONALE_1</li>
-                <li>RATIONALE_2</li>
-                <li>RATIONALE_3</li>
+                <li><strong>Encoding asymmetry (UK = bar, Global = line)</strong> — I deliberately encoded the UK’s
+                    spending as bars while rendering the global average as a line. This creates an intuitive visual
+                    hierarchy where the UK’s contributions appear dominant and tangible, while the global average
+                    recedes into the background. <em>Earnestness Score: -1.5</em></li>
+                <li><strong>Color coding to imply moral contrast</strong> — The UK is represented in green, a color
+                    culturally associated with environmental responsibility, while the global average is in red. This
+                    subtly reinforces the idea that the UK is doing the 'right' thing. <em>Earnestness Score: -1</em>
+                </li>
+                <li><strong>Lack of contextual normalization</strong> — Comparing a developed nation to the global
+                    average hides variation in economic capacity. The global average will be heavily deflated by the
+                    large number of countries with lower environmental spending—either because it is not their
+                    priority or due to economic constraints. This omission makes the UK look more generous than it
+                    may actually be. <em>Earnestness Score: -2</em></li>
+                <li><strong>Well-labeled axes and clear visual design</strong> — The visualization includes clearly
+                    labeled axes, appropriate scaling, and a direct title. These elements support honest communication
+                    of the data and make the visualization more accessible and interpretable to a general audience.
+                    <em>Earnestness Score: +1.5</em>
+                </li>
             </ul>
         </section>
 
         <section>
             <h3>AGAINST the Proposition</h3>
-
             <figure>
-                <img src="IMAGE_FILENAME" alt="" />
-                <figcaption>BRIEF CAPTION HERE.</figcaption>
+                <img src="./Images/final-against.png" alt="Image against the proposition" width="100%" />
+                <figcaption>A plot of UK’s CO<sub>2</sub> emission imports vs exports.</figcaption>
             </figure>
-
-            <p>Design Decisions and Rationale:</p>
-
+            Design Decisions and Rationale:
             <ul>
-                <li>RATIONALE_1</li>
-                <li>RATIONALE_2</li>
-                <li>RATIONALE_3</li>
+                <li><strong>Inversion of export values</strong> — CO<sub>2</sub> export values are inverted to fall
+                    below the x-axis, while imports rise above it. This exaggerates the gap and visually dramatizes the
+                    trade deficit. <em>Earnestness Score: -2</em></li>
+                <li><strong>Stacked bar layout with zero as dividing axis</strong> — The layout uses the x-axis as a
+                    “moral dividing line,” giving a sense of imbalance. <em>Earnestness Score: -1</em></li>
+                <li><strong>Layered subtitle framing</strong> — The subtitle explicitly states the UK’s failure to
+                    offset CO<sub>2</sub> imports, rhetorically undercutting the earlier visual. <em>Earnestness Score:
+                        -0.5</em></li>
+                <li><strong>Color framing of emissions</strong> — Imports are shown in red and exports in green, subtly
+                    leveraging color psychology to imply that CO<sub>2</sub> imports are harmful and exports are
+                    virtuous. This adds a deep emotional meaning without altering the data itself. <em>Earnestness
+                        Score: -0.5</em></li>
+                <li><strong>Effective use of annotations</strong> — The chart includes contextual annotations, such as
+                    the financial crisis and an indication of the trade deficit, given by the difference between imports
+                    and exports. This helps orient the viewer and add interpretive value, and guides the reader without
+                    overwhelming the visual. <em>Earnestness Score: +1</em></li>
             </ul>
         </section>
 
         <section>
             <h2>Final Reflection</h2>
+            <p>This project challenged my assumptions about neutrality in data visualization. Initially, I believed
+                effective visualizations should aim for objectivity, but through the design of persuasive and deceptive
+                visuals, I came to appreciate how much influence framing, encoding, and textual language wield over
+                audience interpretation. Even seemingly small choices — like the direction of a bar or the use of green
+                versus red — can have disproportionate rhetorical weight.</p>
 
-            <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+            <p>Designing the 'FOR' visualization was relatively straightforward because the dataset lent itself well to
+                constructing a favorable narrative. The global average, by nature, is diluted by lower-income countries,
+                making it easier for the UK to stand out when shown in isolation. However, designing the 'AGAINST' side
+                was more challenging — I had to dig into secondary metrics (like CO<sub>2</sub> trade imbalance) and
+                rely on carefully framed encodings to undermine the UK's image as a leader.</p>
+
+            <p>This exercise made it clear that persuasive and deceptive techniques lie on a spectrum. While some
+                choices—like axis truncation or cherry-picking—clearly cross ethical lines, others—like thoughtful
+                annotation or ordering of categories—live in a grey area. I now believe that ethical visualization
+                doesn’t mean avoiding persuasion; it means being transparent and reflective about one’s design intent.
+                The most misleading visualizations are those that pretend to be neutral while subtly manipulating
+                perception. As a result, I’ve grown more critical of not just what a chart shows, but how and why it
+                shows it that way.</p>
         </section>
     </main>
 </body>
